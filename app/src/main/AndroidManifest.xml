@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Android 11-ൽ ഇൻസ്റ്റാൾ ചെയ്ത ആപ്പുകൾ മുഴുവൻ കാണാൻ ഈ പെർമിഷൻ നിർബന്ധമാണ് -->
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- ടിവിയിൽ ടച്ച് സ്ക്രീൻ ഇല്ലാത്തതിനാൽ ഇത് false ആക്കണം -->
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+    <uses-feature
+        android:name="android.software.leanback"
+        android:required="true" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@android:drawable/sym_def_app_icon"
+        android:label="Mi Futuristic Launcher"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.NoActionBar">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:screenOrientation="landscape">
+            
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <!-- ടിവി ഹോം സ്ക്രീൻ ആയി പ്രവർത്തിക്കാൻ ഉള്ള കാറ്റഗറികൾ -->
+                <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
